@@ -61,7 +61,7 @@ class Task(models.Model):
     status = models.CharField(max_length=15, choices=TASK_STATUS_CHOICES, default=OPEN)
     user_id = models.OneToOneField(Employe, on_delete=models.PROTECT)
     responsible_id = models.ForeignKey(Responsible, on_delete=models.CASCADE)
-    start_date = models.DateTimeField('Дата постановки задачи', default=timezone.now())
+    # start_date = models.DateTimeField('Дата постановки задачи', default=timezone.now())
     # established_time = models.DateTimeField('Оценочное время')
     # last_delta = models.DateTimeField('Оставшееся время', default=0)
 

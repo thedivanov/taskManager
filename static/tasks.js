@@ -2,7 +2,7 @@ const user_id = 2;
 const token = '123';
 const task_id = 1;
 
-const WS = new WebSocket('ws://localhost:8000/ws/notify/'+task_id+'/');
+const WS = new WebSocket('ws://localhost:8000/ws/notify/'+user_id+'/');
 const url = 'http://127.0.0.1:8000'
 
 WS.onclose = () => {
@@ -24,11 +24,11 @@ function createMsg(type) {
 }
 
 function stopTask() {
-    WS.send(JSON.stringify(createMsg('stop_task')));
+    WS.send(JSON.stringify(createMsg('stop.task')));
 }
 
 function startTask() {
-    WS.send(JSON.stringify(createMsg('star_task')));
+    WS.send(JSON.stringify(createMsg('star.task')));
 }
 
 function closeTask() {

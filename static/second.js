@@ -1,8 +1,8 @@
 const user_id = 1;
-const token = '123';
+// const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI0MjAwMzc3LCJqdGkiOiIwNTBhMDljMWNiZDk0NWJjOWVjYWI2MGE0NjE5MWRkYiIsInVzZXJfaWQiOjIsInVzZXJuYW1lIjoiZGl2YW5vdiJ9.167OnFdS2kVQvp-io3gYsJKqq26q8Ps_VjXkaNIUCMc';
 const task_id = 1;
 
-const WS = new WebSocket('ws://localhost:8000/ws/notify/'+task_id+'/');
+const WS = new WebSocket('ws://localhost:8000/ws/notify/'+user_id+'/');
 const url = 'http://127.0.0.1:8000'
 
 WS.onclose = () => {
@@ -24,15 +24,15 @@ function createMsg(type) {
 }
 
 function stopTask() {
-    WS.send(JSON.stringify(createMsg('stop_task')));
+    WS.send(JSON.stringify(createMsg('stop.task')));
 }
 
 function startTask() {
-    WS.send(JSON.stringify(createMsg('star_task')));
+    WS.send(JSON.stringify(createMsg('star.task')));
 }
 
 function closeTask() {
-    WS.send(JSON.stringify(createMsg('close_task')));
+    WS.send(JSON.stringify(createMsg('close.task')));
 }
 
 WS.onmessage = message => {
